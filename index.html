@@ -301,8 +301,8 @@
         
           
             <h2 id="Chapter-4-类和对象"><a href="#Chapter-4-类和对象" class="headerlink" title="Chapter 4 类和对象"></a>Chapter 4 类和对象</h2><p>利用类可以实现数据的<strong>封装、隐藏、继承和派生</strong>  </p>
-<h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><p>抽象的实现：通过类的声明  </p>
-<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><p>将抽象出的数据成员、代码成员相结合，将它们视为一个整体。<br>实现封装：类声明中的{}  </p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><p>抽象的实现：通过类的声明  </p>
+<h4 id="封装-1"><a href="#封装-1" class="headerlink" title="封装"></a>封装</h4><p>将抽象出的数据成员、代码成员相结合，将它们视为一个整体。<br>实现封装：类声明中的{}    </p>
 <ul>
 <li>注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，和register类型。</li>
 </ul>
@@ -310,7 +310,15 @@
 auto/register/extern表示的是变量的存储位置和作用域。auto变量存储在函数的堆栈空间，register存储在寄存器，extern表示这里没有新定义变量，只是扩展了一个已有全局变量的作用域。类和结构体中的变量是成员变量，其存储位置和作用域由定义对象的函数决定，不由这些对象自己决定。<br>例如，你定义了一个类，complex，然后你在函数main中有如下语句：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> <span class="keyword">complex</span> c;</span><br></pre></td></tr></table></figure>
 
-<p>这就表示c这个对象在函数堆栈中存储。那么，c中的real和imaginary自然也在堆栈中了。同时，他们的生存期也仅限于函数内部。因此，你不需要，也不能单独给对象的成员变量规定存储位置和作用域。</p>
+<p>这就表示c这个对象在函数堆栈中存储。那么，c中的real和imaginary自然也在堆栈中了。同时，他们的生存期也仅限于函数内部。因此，你不需要，也不能单独给对象的成员变量规定存储位置和作用域。<br><strong>this指针</strong>:  
+编译器改变每个类成员函数的调用，加上一个额外的实参，即被调用对象的地址。  </p>
+<p>###访问控制</p>
+<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><p>在类内部可以任意访问。外界只能通过对象的接口（具有public属性的成员函数）来访问。</p>
+<h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><p>在派生类中，具有私有的或者保护的访问属性（private成分在派生类中是不可访问的）。</p>
+<h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><p>外界可以访问。<br><strong>创建一个对象指针</strong>:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Clock *p = <span class="keyword">new</span> Clock;</span><br></pre></td></tr></table></figure>
+
+<p>###构造函数和析构函数<br>由系统自动执行，在程序中不可以显示地调用它们。<br>定义数组时，需要采用定义无参的构造函数。</p>
 
           
         
