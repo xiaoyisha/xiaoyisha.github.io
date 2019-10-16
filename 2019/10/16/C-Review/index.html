@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Coding,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="1题目输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。 思路很容易想到一个会引起死循环的方法： 12345678int NumberOf1(int n)&amp;#123;    int cnt = 0;    while(n)&amp;#123;        if(n&amp;amp;1) cnt++;        n &amp;gt;&amp;gt;= 1;    &amp;#125;    return cnt;&amp;#1">
-<meta name="keywords" content="Coding">
+<meta name="description" content="Chapter 4 类和对象利用类可以实现数据的封装、隐藏、继承和派生   抽象抽象的实现：通过类的声明   封装将抽象出的数据成员、代码成员相结合，将它们视为一个整体。实现封装：类声明中的{}    注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，和reg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Some Trics in Coding Practice">
-<meta property="og:url" content="http://yoursite.com/2019/08/04/Coding/index.html">
+<meta property="og:title" content="C++ Review">
+<meta property="og:url" content="http://yoursite.com/2019/10/16/C-Review/index.html">
 <meta property="og:site_name" content="Space - ISA">
-<meta property="og:description" content="1题目输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。 思路很容易想到一个会引起死循环的方法： 12345678int NumberOf1(int n)&amp;#123;    int cnt = 0;    while(n)&amp;#123;        if(n&amp;amp;1) cnt++;        n &amp;gt;&amp;gt;= 1;    &amp;#125;    return cnt;&amp;#1">
+<meta property="og:description" content="Chapter 4 类和对象利用类可以实现数据的封装、隐藏、继承和派生   抽象抽象的实现：通过类的声明   封装将抽象出的数据成员、代码成员相结合，将它们视为一个整体。实现封装：类声明中的{}    注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，和reg">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-04T15:19:32.956Z">
+<meta property="og:updated_time" content="2019-10-16T07:50:48.804Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Some Trics in Coding Practice">
-<meta name="twitter:description" content="1题目输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。 思路很容易想到一个会引起死循环的方法： 12345678int NumberOf1(int n)&amp;#123;    int cnt = 0;    while(n)&amp;#123;        if(n&amp;amp;1) cnt++;        n &amp;gt;&amp;gt;= 1;    &amp;#125;    return cnt;&amp;#1">
+<meta name="twitter:title" content="C++ Review">
+<meta name="twitter:description" content="Chapter 4 类和对象利用类可以实现数据的封装、隐藏、继承和派生   抽象抽象的实现：通过类的声明   封装将抽象出的数据成员、代码成员相结合，将它们视为一个整体。实现封装：类声明中的{}    注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，和reg">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/04/Coding/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/16/C-Review/">
 
 
 
 
 
-  <title>Some Trics in Coding Practice | Space - ISA</title>
+  <title>C++ Review | Space - ISA</title>
   
 
 
@@ -233,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/04/Coding/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/C-Review/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Isabel">
@@ -250,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Some Trics in Coding Practice</h1>
+          <h1 class="post-title" itemprop="name headline">C++ Review</h1>
         
 
         <div class="post-meta">
@@ -262,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-04T23:12:33+08:00">
-                2019-08-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-16T15:33:02+08:00">
+                2019-10-16
               </time>
             
 
@@ -300,14 +299,17 @@
       
 
       
-        <h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。</p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>很容易想到一个会引起死循环的方法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>) cnt++;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Chapter-4-类和对象"><a href="#Chapter-4-类和对象" class="headerlink" title="Chapter 4 类和对象"></a>Chapter 4 类和对象</h2><p>利用类可以实现数据的<strong>封装、隐藏、继承和派生</strong>  </p>
+<h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><p>抽象的实现：通过类的声明  </p>
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><p>将抽象出的数据成员、代码成员相结合，将它们视为一个整体。<br>实现封装：类声明中的{}  </p>
+<ul>
+<li>注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，和register类型。</li>
+</ul>
+<p><strong>为什么不能是auto, extern, register类型</strong>:  
+auto/register/extern表示的是变量的存储位置和作用域。auto变量存储在函数的堆栈空间，register存储在寄存器，extern表示这里没有新定义变量，只是扩展了一个已有全局变量的作用域。类和结构体中的变量是成员变量，其存储位置和作用域由定义对象的函数决定，不由这些对象自己决定。<br>例如，你定义了一个类，complex，然后你在函数main中有如下语句：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> <span class="keyword">complex</span> c;</span><br></pre></td></tr></table></figure>
 
-<p>原因是负数的移位最高位总是1。<br>一个非常巧妙的思路是：<br>把一个整数 （无论正负或0）减去1，再和原整数做与运算，会把该整数最右边的一个1变为0，例如：110100减1后变为110011，二者进行与操作后，得到110000，最后边的1变为了0，而前面的位都不变。<br>这样，我们可以利用这这一结论来从左向右依次将整数的最右边的1变为0，当该整数的所有位为1的位均变为0之后，便统计到了该整数二进制中1的个数。    </p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        count++;</span><br><span class="line">        n = n &amp; (n<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://blog.csdn.net/ns_code/article/details/25425577" target="_blank" rel="noopener">https://blog.csdn.net/ns_code/article/details/25425577</a> </p>
+<p>这就表示c这个对象在函数堆栈中存储。那么，c中的real和imaginary自然也在堆栈中了。同时，他们的生存期也仅限于函数内部。因此，你不需要，也不能单独给对象的成员变量规定存储位置和作用域。</p>
 
       
     </div>
@@ -323,12 +325,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Coding/" rel="tag"># Coding</a>
-          
-        </div>
-      
 
       
       
@@ -338,8 +334,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/03/Kibana-Timelion-X-pack-ML/" rel="next" title="Kibana中应用Timelion, X-pack, ML监测异常">
-                <i class="fa fa-chevron-left"></i> Kibana中应用Timelion, X-pack, ML监测异常
+              <a href="/2019/09/30/Traval-to-London/" rel="next" title="Travel to London">
+                <i class="fa fa-chevron-left"></i> Travel to London
               </a>
             
           </div>
@@ -347,10 +343,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/30/Traval-to-London/" rel="prev" title="Travel to London">
-                Travel to London <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -473,7 +465,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">1.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-类和对象"><span class="nav-number">1.</span> <span class="nav-text">Chapter 4 类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象"><span class="nav-number">1.0.1.</span> <span class="nav-text">抽象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装"><span class="nav-number">1.0.2.</span> <span class="nav-text">封装</span></a></li></ol></li></ol></div>
             
 
           </div>

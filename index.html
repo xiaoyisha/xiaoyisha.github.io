@@ -229,6 +229,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/C-Review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Isabel">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Space - ISA">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/16/C-Review/" itemprop="url">C++ Review</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-16T15:33:02+08:00">
+                2019-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Chapter-4-类和对象"><a href="#Chapter-4-类和对象" class="headerlink" title="Chapter 4 类和对象"></a>Chapter 4 类和对象</h2><p>利用类可以实现数据的<strong>封装、隐藏、继承和派生</strong>  </p>
+<h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><p>抽象的实现：通过类的声明  </p>
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><p>将抽象出的数据成员、代码成员相结合，将它们视为一个整体。<br>实现封装：类声明中的{}  </p>
+<ul>
+<li>注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，和register类型。</li>
+</ul>
+<p><strong>为什么不能是auto, extern, register类型</strong>:  
+auto/register/extern表示的是变量的存储位置和作用域。auto变量存储在函数的堆栈空间，register存储在寄存器，extern表示这里没有新定义变量，只是扩展了一个已有全局变量的作用域。类和结构体中的变量是成员变量，其存储位置和作用域由定义对象的函数决定，不由这些对象自己决定。<br>例如，你定义了一个类，complex，然后你在函数main中有如下语句：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> <span class="keyword">complex</span> c;</span><br></pre></td></tr></table></figure>
+
+<p>这就表示c这个对象在函数堆栈中存储。那么，c中的real和imaginary自然也在堆栈中了。同时，他们的生存期也仅限于函数内部。因此，你不需要，也不能单独给对象的成员变量规定存储位置和作用域。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/Traval-to-London/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1003,7 +1133,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
