@@ -312,13 +312,12 @@ auto/register/extern表示的是变量的存储位置和作用域。auto变量�
 
 <p>这就表示c这个对象在函数堆栈中存储。那么，c中的real和imaginary自然也在堆栈中了。同时，他们的生存期也仅限于函数内部。因此，你不需要，也不能单独给对象的成员变量规定存储位置和作用域。<br><strong>this指针</strong>:  
 编译器改变每个类成员函数的调用，加上一个额外的实参，即被调用对象的地址。  </p>
-<p>###访问控制</p>
-<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><p>在类内部可以任意访问。外界只能通过对象的接口（具有public属性的成员函数）来访问。</p>
+<h3 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h3><h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><p>在类内部可以任意访问。外界只能通过对象的接口（具有public属性的成员函数）来访问。</p>
 <h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><p>在派生类中，具有私有的或者保护的访问属性（private成分在派生类中是不可访问的）。</p>
 <h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><p>外界可以访问。<br><strong>创建一个对象指针</strong>:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Clock *p = <span class="keyword">new</span> Clock;</span><br></pre></td></tr></table></figure>
 
-<p>###构造函数和析构函数<br>由系统自动执行，在程序中不可以显示地调用它们。<br>定义数组时，需要使用无参的构造函数。</p>
+<h3 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h3><p>由系统自动执行，在程序中不可以显示地调用它们。<br>定义数组时，需要使用无参的构造函数。</p>
 
           
         
