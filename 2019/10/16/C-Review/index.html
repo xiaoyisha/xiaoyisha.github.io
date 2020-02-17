@@ -87,10 +87,13 @@
 <meta property="og:site_name" content="Space - ISA">
 <meta property="og:description" content="Chapter 4 类和对象利用类可以实现数据的封装、隐藏、继承和派生   封装抽象抽象的实现：通过类的声明   封装将抽象出的数据成员、代码成员相结合，将它们视为一个整体。实现封装：类声明中的{}      注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-17T11:36:09.020Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/16/C-Review/point.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/16/C-Review/static.png">
+<meta property="og:updated_time" content="2019-10-28T03:28:08.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Review">
 <meta name="twitter:description" content="Chapter 4 类和对象利用类可以实现数据的封装、隐藏、继承和派生   封装抽象抽象的实现：通过类的声明   封装将抽象出的数据成员、代码成员相结合，将它们视为一个整体。实现封装：类声明中的{}      注意：数据成员可以是指向自身类的指针（由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间），但不能是自身类的对象（会出现无限初始化的问题）。也不能是auto，extern，">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/16/C-Review/point.png">
 
 
 
@@ -332,6 +335,16 @@ auto/register/extern表示的是变量的存储位置和作用域。auto变量�
 <h3 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h3><p>由系统自动执行，在程序中不可以显示地调用它们。<br>定义数组时，需要使用无参的构造函数。</p>
 <h4 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h4><p>拷贝构造函数的参数常常是<strong>const类型本类对象的引用</strong>。当类具有<strong>指针类型的数据成员</strong>时，默认拷贝构造函数就可能产生<strong>指针悬挂</strong>问题，需要提供显示的拷贝构造函数。</p>
 <h4 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h4><p>析构函数不可以重载，也就是每个类只有一个析构函数。当数据成员有指针或者指针数组时，在析构函数中应当将new出来的空间delete掉。</p>
+<h3 id="类的组合"><a href="#类的组合" class="headerlink" title="类的组合"></a>类的组合</h3><h4 id="前向引用声明"><a href="#前向引用声明" class="headerlink" title="前向引用声明"></a>前向引用声明</h4><p>前向声明的类属于一个incompete type只能用于指针和引用传递，或者声明该类型为函数形参或者返回值。在提供一个完整的类声明之前，不能声明该类的对象，也不能在内联成员函数中使用该类的对象。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fred</span>;</span> <span class="comment">//前向引用声明</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Barney</span> &#123;</span></span><br><span class="line">   Fred x; <span class="comment">//错误：类Fred的声明尚不完善</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fred</span> &#123;</span></span><br><span class="line">   Barney y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据的共享与保护"><a href="#数据的共享与保护" class="headerlink" title="数据的共享与保护"></a>数据的共享与保护</h3><ul>
+<li>这种生存期与程序的运行期相同。</li>
+<li>在文件作用域中声明的对象具有这种生存期。</li>
+<li>在函数内部声明静态生存期对象，要冠以关键字static。</li>
+</ul>
+<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><p>包括<strong>静态数据成员</strong>（类中所有对象间的数据共享）和<strong>静态成员函数</strong>（操作类的静态数据的函数）。<br><img src="/2019/10/16/C-Review/point.png" alt="point"><br>对public的静态成员的访问：<br>可以通过类<code>Point::showCount();</code>也可以通过任何一个对象<code>a.showCount();</code>。
+对普通成员（非静态成员）的访问需要当前对象（*this），对静态成员的访问不需要当前对象。静态数据成员不是由构造函数创建的。<br><img src="/2019/10/16/C-Review/static.png" alt="static"></p>
 
       
     </div>
@@ -493,7 +506,7 @@ auto/register/extern表示的是变量的存储位置和作用域。auto变量�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-类和对象"><span class="nav-number">1.</span> <span class="nav-text">Chapter 4 类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">1.1.</span> <span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象"><span class="nav-number">1.1.1.</span> <span class="nav-text">抽象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">封装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问控制"><span class="nav-number">1.2.</span> <span class="nav-text">访问控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#private"><span class="nav-number">1.2.1.</span> <span class="nav-text">private</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#protected"><span class="nav-number">1.2.2.</span> <span class="nav-text">protected</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public"><span class="nav-number">1.2.3.</span> <span class="nav-text">public</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员函数在内存中的存储方式"><span class="nav-number">1.3.</span> <span class="nav-text">成员函数在内存中的存储方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数和析构函数"><span class="nav-number">1.4.</span> <span class="nav-text">构造函数和析构函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝构造函数"><span class="nav-number">1.4.1.</span> <span class="nav-text">拷贝构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#析构函数"><span class="nav-number">1.4.2.</span> <span class="nav-text">析构函数</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-类和对象"><span class="nav-number">1.</span> <span class="nav-text">Chapter 4 类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">1.1.</span> <span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象"><span class="nav-number">1.1.1.</span> <span class="nav-text">抽象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">封装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问控制"><span class="nav-number">1.2.</span> <span class="nav-text">访问控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#private"><span class="nav-number">1.2.1.</span> <span class="nav-text">private</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#protected"><span class="nav-number">1.2.2.</span> <span class="nav-text">protected</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public"><span class="nav-number">1.2.3.</span> <span class="nav-text">public</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员函数在内存中的存储方式"><span class="nav-number">1.3.</span> <span class="nav-text">成员函数在内存中的存储方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数和析构函数"><span class="nav-number">1.4.</span> <span class="nav-text">构造函数和析构函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝构造函数"><span class="nav-number">1.4.1.</span> <span class="nav-text">拷贝构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#析构函数"><span class="nav-number">1.4.2.</span> <span class="nav-text">析构函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的组合"><span class="nav-number">1.5.</span> <span class="nav-text">类的组合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前向引用声明"><span class="nav-number">1.5.1.</span> <span class="nav-text">前向引用声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的共享与保护"><span class="nav-number">1.6.</span> <span class="nav-text">数据的共享与保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的静态成员"><span class="nav-number">1.7.</span> <span class="nav-text">类的静态成员</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -513,7 +526,7 @@ auto/register/extern表示的是变量的存储位置和作用域。auto变量�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
